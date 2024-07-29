@@ -1,42 +1,139 @@
-/* Place your CSS styles in this file */
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* sort galerie via CSS, gcyrillus */
+html {
+	background: #333;
+	min-height: 100%;
+	font-size:65%;
+	}
+body {font-family:georgia;font-size:1.2em;}
+img {
+	vertical-align:top;
+	width:200px;
+	border-radius:0;
+	transition:1s;
+	}
+figure {
+	display:inline-block;
+	vertical-align:middle;
+	margin:0;
+	position:relative;
+	z-index:1;
+	transition:0.5s;
+	border-radius:0px;
+	transform:scale(1);
+	overflow:hidden;
+	box-shadow:inset 0 0 0 1px #333, inset 0 0 0 2px #999;
+	padding:2px;
+	}
+figcaption {
+	position:absolute;bottom:0;left:0;right:0;letter-spacing:1px;
+	background:rgba(255,255,255,0.3) linear-gradient(rgba(0,0,0,0.3),#fff);
+	border:solid 1px gray;
+	box-shadow:0 0 1px 0px  #333;
+	text-align:center;
+	text-shadow:0 0 1px #333;
+	max-height:0;
+	transition:3s;
+	border-radius:1em;
+	}
+figure:hover figcaption {
+	max-height:200px;
+	transition:10s;
+	bottom:220px;
+	line-height:1.2em;
+	}
+figure:hover img {
+	border-radius:100%;
+	transition:1s;}
+	figure:hover {
+	transition:1s;
+	transform:scale(2);
+	z-index:5;
+	border-radius:100%;
+	}
 
-h1 {
-    text-align: center;
-    font-family: "Poppins", sans-serif;
-    font-weight: normal;
-}
+section {
+	margin:100px;
+	display:table;
+	font-size:0.5em;color:black;
+	letter-spacing:-0.5em;
+	line-height:0px;
+	text-align:center;
+	
+	}
+form {
+	max-width:1350px;
+	margin:auto;
+	color:gold;
+	font-size:2em;
+	}
+	legend {padding:0 1em;font-variant:small-caps;}
+label {
+	display:list-item;
+	float:left;
+	clear:left;
+	margin:0.2em 1em;
+	padding:0;
+	width:4.5em;
+	}
+label:focus {
+	color:purple;
+	outline:0;
+	}
 
-body {
-    font-family: "Poppins";
-}
+label:first-of-type {
+	margin-top:50px;
+	}
 
-#myInput {
-  width: 96%; 
-  font-size: 16px; /* Increase font-size */
-  padding: 12px 20px 12px 40px; /* Add some padding */
-  border: 1px solid #ddd; /* Add a grey border */
-  margin-bottom: 12px; /* Add some space below the input */
-}
+input[type="radio"] , 
+form input:not(:checked) ~ input[type="submit"],
+form input[id="aucune"]:checked ~ input[type="submit"] 
+{
+	display:none;
+	}
 
-#myUL {
-  /* Remove default list styling */
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-#myUL li a {
-  border: 1px solid #ddd; /* Add a border to all links */
-  margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6; /* Grey background color */
-  padding: 10px; /* Add some padding */
-  text-decoration: none; /* Remove default text underline */
-  font-size: 14px; /* Increase the font-size */
-  color: black; /* Add a black text color */
-  display: block; /* Make it into a block element to fill the whole list */
-}
-
-#myUL li a:hover:not(.header) {
-  background-color: #eee; /* Add a hover effect to all links, except for headers */
-}
+ section figure, 
+ input[id="aucune"]:checked ~ section  figure[class] 
+ {
+ 	height:0;
+ 	width:0;
+ 	transition:1s;
+ 	padding:0;
+ 	}
+ input[id="city"]:checked ~ section .city
+ ,input[id="fashion"]:checked ~ section .fashion
+ ,input[id="animals"]:checked ~ section .animals
+ ,input[id="sport"]:checked ~ section .sport
+ ,input[id="people"]:checked ~ section .people
+ ,input[id="nightlife"]:checked ~ section .nightlife
+ ,input[id="transport"]:checked ~ section .transport
+ ,input[id="nature"]:checked ~ section .nature
+ ,input[id="food"]:checked ~ section .food
+ ,input[id="abstract"]:checked ~ section .abstract
+ ,input[id="technics"]:checked ~ section .technics
+ ,input[id="tous"]:checked ~ section figure {
+	height:200px;width:200px;transition:1s;padding:2px;
+	}
+input[type="radio"]:checked ~ section:before {content:'';display:none;}
+input[id="aucune"]:checked ~section:before
+,input:not(:checked) ~ section:before {
+	content:'Aucune galerie sélectionnée.';
+	letter-spacing:1px;
+	font-size:2em;
+	line-height:2em;;
+display:table-caption;
+min-width:600px;
+	margin:auto;
+	text-align:center;
+	color:white;
+	}
+input[type="radio"]:checked ~ input[type="submit"] {
+	font-size:1.5em;
+	background:linear-gradient(purple , yellow);
+	display:block;
+	margin:auto;
+	border-radius:0.2em;
+	box-shadow:0 0 5px #fff;
+	}
+input[type="radio"]:checked ~ input[type="submit"]:hover {
+	background:linear-gradient(yellow,purple );
+	}
