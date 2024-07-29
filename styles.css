@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
 /* sort galerie via CSS, gcyrillus */
 html {
 	background: #333;
 	min-height: 100%;
 	font-size:65%;
 	}
-body {font-family:georgia;font-size:1.2em;}
+body {font-family:"Roboto Serif", serif;font-size:1.2em;}
 img {
 	vertical-align:top;
 	width:200px;
